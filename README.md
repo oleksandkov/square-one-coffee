@@ -1,8 +1,55 @@
-# Quick Start Template for AI-Augmented Reproducible Research
+# Square One Coffee Research Partnership
 
-> [No one beginning a data science project should start from a blinking cursor.](https://towardsdatascience.com/better-collaborative-data-science-d2006b9c0d39) <br/>...Templatization is a best practice for things like using common directory structure across projects...<br/> -[Megan Risdal](https://towardsdatascience.com/@meganrisdal) Kaggle Product Lead.
+> *"At Square 1, we foster belonging by creating community. We own our presence in the community by acting with integrity and generosity."* — Square One Coffee
 
-This template provides a comprehensive foundation for **AI-augmented reproducible research projects**. It combines the best practices of reproducible research with  AI support infrastructure, which levereges generative LLMs and agent customization to construct and manage analytic pipelines.
+**Learning partnership** between [RG-FIDES](https://github.com/RG-FIDES) and [Square One Coffee](https://www.square1coffee.ca/), a family-owned specialty coffee chain in Edmonton, Alberta. We're researchers who consult by helping you learn—delivering insights while teaching the methods behind them.
+
+## 🎯 Project Overview
+
+**Partner**: Square One Coffee (est. 2015, Jonathon & Brandy Brozny)  
+**Locations**: 6 active + 1 coming soon (Edmonton metro)  
+**Research Team**: RG-FIDES (Framework for Interpretive Dialogue and Epistemic Symbiosis)  
+
+### What We Do
+- **Answer business questions** using rigorous research methods
+- **Systematize knowledge** from open and internal data sources  
+- **Build analytical capacity** so SOC can explore future questions independently
+- **Test hypotheses** collaboratively with academic-quality methods
+
+### Why We're Different
+**Traditional consultants** deliver reports and leave.  
+**Researchers** deliver insights + teach you how to generate more.  
+
+We consult by helping you learn. Every analysis becomes a template. Every question answered builds capacity for the next one.
+
+### Core Services
+1. **Market Intelligence** — Competitive landscape, customer insights, growth opportunities
+2. **Operational Analytics** — Staffing optimization, inventory management, performance benchmarking
+3. **Hypothesis Testing** — Rigorous analysis of strategic questions SOC leadership poses
+4. **Data Strategy** — Open data collection systems and internal data organization
+
+### Related SOC Businesses
+- **Anecdote Coffee Roasters** (2022) — In-house roasting operation
+- **Doorstep Barista** — Craft coffee subscription service
+- **Stone & Wheel Pizzeria** — Restaurant expansion
+
+---
+
+## 📁 Repository Structure
+
+```
+├── ai/                    # AI support system (personas, memory, context)
+│   ├── project/           # Mission, methodology, glossary
+│   └── memory/            # Decision logs and AI notes
+├── analysis/              # Research analyses and reports
+├── data-public/           # Non-sensitive data and profiles
+│   └── derived/           # Generated documents (e.g., business profiles)
+├── data-private/          # SOC operational data (when available)
+├── guides/                # Project documentation
+└── philosophy/            # Research frameworks (FIDES, validity)
+```
+
+---
 
 
 ## 🎭 AI Persona System
