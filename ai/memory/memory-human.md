@@ -7,4 +7,7 @@ Human decisions and reasoning.
 
 ---
 
- ** 2025-11-11 **: Removed ai_memory_check() function - unnecessary wrapper that just called memory_status(), quick_intent_scan(), and show_memory_help() in sequence. Users should call these directly. Renamed wrapper script from run-ai-memory-check.R to show-memory-status.R for clarity. Result: 312 lines reduced to 293 lines (6% further reduction). Total cleanup: 377 -> 293 lines (22% reduction overall). 
+# 2025-12-09 
+ Initial prompt 
+ 
+I want to develop a strategy for research support of Square One Coffee (https://www.square1coffee.ca/) a chain of coffee shops in Edmonton Alberta. My research group would like to approach SOC to offer them services on marketing research and support the staff with transition to AI-supported information services (accounting, logistics, staffing, planning, promotion, etc.). 
