@@ -1,3 +1,8 @@
+# --- ENV -----
+
+.env
+
+
 # ---- R and RStudio files -----------------------------------------------
 .Rproj.user/
 .Rhistory
