@@ -3,7 +3,7 @@
   "tasks": [
     {
       "label": "Ellis Pipeline - Complete",
-      "detail": "Run complete Ellis data pipeline: Python + R stages (0-3 + consolidation)",
+      "detail": "Run complete Ellis data pipeline: Python + R stages (0-6 + consolidation)",
       "type": "process",
       "command": "powershell",
       "args": [
@@ -11,7 +11,7 @@
         "-ExecutionPolicy",
         "Bypass",
         "-Command",
-        "py -3 \"${workspaceFolder}\\manipulation\\ellis-0-scan.py\"; if ($LASTEXITCODE -eq 0) { Rscript \"${workspaceFolder}\\manipulation\\ellis-1-open-data.R\" }; if ($LASTEXITCODE -eq 0) { Rscript \"${workspaceFolder}\\manipulation\\ellis-2-open-data.R\" }; if ($LASTEXITCODE -eq 0) { Rscript \"${workspaceFolder}\\manipulation\\ellis-3-open-data.R\" }; if ($LASTEXITCODE -eq 0) { Rscript \"${workspaceFolder}\\manipulation\\ellis-last.R\" }"
+        "py -3 \"${workspaceFolder}\\manipulation\\ellis-0-scan.py\"; if ($LASTEXITCODE -eq 0) { Rscript \"${workspaceFolder}\\manipulation\\ellis-1-open-data.R\" }; if ($LASTEXITCODE -eq 0) { Rscript \"${workspaceFolder}\\manipulation\\ellis-2-open-data.R\" }; if ($LASTEXITCODE -eq 0) { Rscript \"${workspaceFolder}\\manipulation\\ellis-3-open-data.R\" }; if ($LASTEXITCODE -eq 0) { Rscript \"${workspaceFolder}\\manipulation\\ellis-4-open-data.R\" }; if ($LASTEXITCODE -eq 0) { Rscript \"${workspaceFolder}\\manipulation\\ellis-5-open-data.R\" }; if ($LASTEXITCODE -eq 0) { Rscript \"${workspaceFolder}\\manipulation\\ellis-6-transform.R\" }; if ($LASTEXITCODE -eq 0) { Rscript \"${workspaceFolder}\\manipulation\\ellis-last.R\" }"
       ],
       "options": { "cwd": "${workspaceFolder}" },
       "group": "build",
@@ -20,7 +20,7 @@
     },
     {
       "label": "Ellis Pipeline - Open Data Only",
-      "detail": "Run Ellis pipeline stages 1-3 + consolidation (skips Google Places API stage 0)",
+      "detail": "Run Ellis pipeline stages 1-6 + consolidation (skips Google Places API stage 0)",
       "type": "process",
       "command": "powershell",
       "args": [
@@ -28,7 +28,7 @@
         "-ExecutionPolicy",
         "Bypass",
         "-Command",
-        "Rscript \"${workspaceFolder}\\manipulation\\ellis-1-open-data.R\"; if ($LASTEXITCODE -eq 0) { Rscript \"${workspaceFolder}\\manipulation\\ellis-2-open-data.R\" }; if ($LASTEXITCODE -eq 0) { Rscript \"${workspaceFolder}\\manipulation\\ellis-3-open-data.R\" }; if ($LASTEXITCODE -eq 0) { Rscript \"${workspaceFolder}\\manipulation\\ellis-last.R\" }"
+        "Rscript \"${workspaceFolder}\\manipulation\\ellis-1-open-data.R\"; if ($LASTEXITCODE -eq 0) { Rscript \"${workspaceFolder}\\manipulation\\ellis-2-open-data.R\" }; if ($LASTEXITCODE -eq 0) { Rscript \"${workspaceFolder}\\manipulation\\ellis-3-open-data.R\" }; if ($LASTEXITCODE -eq 0) { Rscript \"${workspaceFolder}\\manipulation\\ellis-4-open-data.R\" }; if ($LASTEXITCODE -eq 0) { Rscript \"${workspaceFolder}\\manipulation\\ellis-5-open-data.R\" }; if ($LASTEXITCODE -eq 0) { Rscript \"${workspaceFolder}\\manipulation\\ellis-6-transform.R\" }; if ($LASTEXITCODE -eq 0) { Rscript \"${workspaceFolder}\\manipulation\\ellis-last.R\" }"
       ],
       "options": { "cwd": "${workspaceFolder}" },
       "group": "build",

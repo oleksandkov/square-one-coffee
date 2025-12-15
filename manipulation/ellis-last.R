@@ -22,6 +22,9 @@ ELLIS_0_DIR <- "data-private/derived/ellis-0"
 ELLIS_1_DIR <- "data-private/derived/ellis-1-open-data"
 ELLIS_2_DIR <- "data-private/derived/ellis-2-open-data"
 ELLIS_3_DIR <- "data-private/derived/ellis-3-open-data"
+ELLIS_4_DIR <- "data-private/derived/ellis-4-open-data"
+ELLIS_5_DIR <- "data-private/derived/ellis-5-open-data"
+ELLIS_6_DIR <- "data-private/derived/ellis-6-transform"
 
 # ---- declare-functions ------
 
@@ -103,13 +106,19 @@ ellis_0_data <- load_csv_or_rds(ELLIS_0_DIR)
 ellis_1_data <- load_csv_or_rds(ELLIS_1_DIR)
 ellis_2_data <- load_csv_or_rds(ELLIS_2_DIR)
 ellis_3_data <- load_csv_or_rds(ELLIS_3_DIR)
+ellis_4_data <- load_csv_or_rds(ELLIS_4_DIR)
+ellis_5_data <- load_csv_or_rds(ELLIS_5_DIR)
+ellis_6_data <- load_csv_or_rds(ELLIS_6_DIR)
 
 # ---- verify-data ------
 data_sources <- list(
   "ellis_0_cafes" = ellis_0_data,
   "ellis_1_property_assessment" = ellis_1_data,
   "ellis_2_business_licenses" = ellis_2_data,
-  "ellis_3_community_services" = ellis_3_data
+  "ellis_3_community_services" = ellis_3_data,
+  "ellis_4_open_data" = ellis_4_data,
+  "ellis_5_open_data" = ellis_5_data,
+  "ellis_6_cafes_with_demographics" = ellis_6_data
 )
 
 message("\nData loading summary:")
@@ -132,6 +141,9 @@ save_table_to_db(ellis_0_data, "ellis_0_cafes", DB_PATH)
 save_table_to_db(ellis_1_data, "ellis_1_property_assessment", DB_PATH)
 save_table_to_db(ellis_2_data, "ellis_2_business_licenses", DB_PATH)
 save_table_to_db(ellis_3_data, "ellis_3_community_services", DB_PATH)
+save_table_to_db(ellis_4_data, "ellis_4_open_data", DB_PATH)
+save_table_to_db(ellis_5_data, "ellis_5_open_data", DB_PATH)
+save_table_to_db(ellis_6_data, "ellis_6_cafes_with_demographics", DB_PATH)
 
 # ---- verify-database ------
 message("\n=== Database verification ===")
