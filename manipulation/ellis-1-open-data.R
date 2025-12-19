@@ -12,6 +12,8 @@
 library(tidyverse)
 library(httr)
 library(jsonlite)
+library(DBI)
+library(RSQLite)
 
 # ---- declare-globals -------
 # Edmonton Open Data SODA2 endpoint for Property Assessment
@@ -86,6 +88,23 @@ message("Saved CSV: ", OUTPUT_CSV)
 # Save as RDS for R users
 saveRDS(property_data, OUTPUT_RDS)
 message("Saved RDS: ", OUTPUT_RDS)
+
+# Save to global SQLite database
+DB_PATH <- "data-private/derived/global-data.sqlite"
+DB_DIR <- dirname(DB_PATH)
+dir.create(DB_DIR, recursive = TRUE, showWarnings = FALSE)
+
+tryCatch({
+  conn <- dbConnect(RSQLite::SQLite(), DB_PATH)
+  dbWriteTable(conn, "ellis_1_property_assessment", property_data, overwrite = TRUE)
+  dbDisconnect(conn)
+  
+  message("Saved to SQLite: ", DB_PATH)
+  message("  Table: ellis_1_property_assessment")
+  message("  Records: ", nrow(property_data))
+}, error = function(e) {
+  message("Warning: Could not save to SQLite: ", e$message)
+})
 
 # ---- verify-save ------
 if (file.exists(OUTPUT_CSV) && file.exists(OUTPUT_RDS)) {

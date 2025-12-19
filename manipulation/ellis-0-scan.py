@@ -359,6 +359,21 @@ class EdmontonCafeFetcher:
             print(f"Warning: Could not convert to RDS: {e}")
             print("You may need to install R or required packages")
         
+        # Save to SQLite database
+        db_path = 'data-private/derived/global-data.sqlite'
+        db_dir = os.path.dirname(db_path)
+        os.makedirs(db_dir, exist_ok=True)
+        
+        try:
+            import sqlite3
+            conn = sqlite3.connect(db_path)
+            df.to_sql('ellis_0_cafes', conn, if_exists='replace', index=False)
+            conn.close()
+            print(f"SQLite table 'ellis_0_cafes' saved to: {db_path}")
+            print(f"  Records: {len(df)}")
+        except Exception as e:
+            print(f"Warning: Could not save to SQLite: {e}")
+        
         return csv_file
 
 

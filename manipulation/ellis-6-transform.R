@@ -11,6 +11,8 @@
 # ---- environment-setup ------
 library(tidyverse)
 library(sf)
+library(DBI)
+library(RSQLite)
 
 # ---- declare-globals -------
 # Input files
@@ -205,6 +207,23 @@ message("Saved CSV: ", OUTPUT_CSV)
 # Save as RDS for R users
 saveRDS(transformed_data, OUTPUT_RDS)
 message("Saved RDS: ", OUTPUT_RDS)
+
+# Save to global SQLite database
+DB_PATH <- "data-private/derived/global-data.sqlite"
+DB_DIR <- dirname(DB_PATH)
+dir.create(DB_DIR, recursive = TRUE, showWarnings = FALSE)
+
+tryCatch({
+  conn <- dbConnect(RSQLite::SQLite(), DB_PATH)
+  dbWriteTable(conn, "ellis_6_cafes_with_demographics", transformed_data, overwrite = TRUE)
+  dbDisconnect(conn)
+  
+  message("Saved to SQLite: ", DB_PATH)
+  message("  Table: ellis_6_cafes_with_demographics")
+  message("  Records: ", nrow(transformed_data))
+}, error = function(e) {
+  message("Warning: Could not save to SQLite: ", e$message)
+})
 
 # ---- verify-save ------
 if (file.exists(OUTPUT_CSV) && file.exists(OUTPUT_RDS)) {
